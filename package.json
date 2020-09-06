@@ -1,0 +1,30 @@
+{
+  "name": "spirit-island-server",
+  "version": "1.0.0",
+  "description": "Server for Spirit Island game data tracking",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "jest --coverage --verbose"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ashleybiermann/spirit-island-server.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ashleybiermann/spirit-island-server/issues"
+  },
+  "homepage": "https://github.com/ashleybiermann/spirit-island-server#readme",
+  "dependencies": {
+    "cf-supergoose": "^1.0.2",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "jest": "^26.4.2",
+    "method-override": "^3.0.0",
+    "mongoose": "^5.10.3",
+    "pg": "^8.3.3"
+  }
+}

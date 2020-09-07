@@ -46,3 +46,4 @@ function getAllGameInfo(req, res) {
 
 }
 
+module.exports = getHomePage;

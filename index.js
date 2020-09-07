@@ -11,6 +11,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 const DBUSER = process.env.DBUSER;
 const DBPASSWORD = process.env.DBPASSWORD;
+const DATABASE_URL = process.env.DATABASE_URL;
 
 // configs and middleware
 app.use(express.urlencoded({ extended: true })); //middleware to create req.body for PORT from forms
@@ -18,16 +19,13 @@ app.use(express.static('./public')); // which frontend files to serve, for the c
 app.use(methodOverride('_overrideMethod'));
 
 // pg set up
-const client = new Client({
-  user: DBUSER,
-  password: DBPASSWORD,
-});
+const client = new Client(DATABASE_URL);
 
 client.connect(err => {
   if (err) {
     console.error('connection error', err.stack);
   } else {
-    console.log('connected to postgres database');
+    console.log('connected to spirit_island database');
   }
 });
 

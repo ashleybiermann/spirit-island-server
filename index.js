@@ -9,13 +9,12 @@ const methodOverride = require('method-override');
 // global vars and app setup
 const app = express();
 const PORT = process.env.PORT || 3000;
-const DBUSER = process.env.DBUSER;
-const DBPASSWORD = process.env.DBPASSWORD;
 const DATABASE_URL = process.env.DATABASE_URL;
 
 // configs and middleware
-app.use(express.urlencoded({ extended: true })); //middleware to create req.body for PORT from forms
+app.use(express.urlencoded({ extended: true })); //middleware to create req.body for PORT forms
 app.use(express.static('./public')); // which frontend files to serve, for the case of forms
+app.set('view engine', 'ejs'); // render === build a page in express
 app.use(methodOverride('_overrideMethod'));
 
 // pg set up
@@ -31,17 +30,34 @@ client.connect(err => {
 
 // routes
 app.get('/', getHomePage);
+app.get('/games/all', getAllGameData);
 
 // start the app
 app.listen(PORT, () => console.log(`app is up on port : ${PORT}`));
 
 // function declarations
 function getHomePage(req, res) {
-  res.send('Welcome to the Spirit Island Game Tracker Homepage!');
+  res.render('pages/index.ejs');
 }
 
-function getAllGameInfo(req, res) {
+function getAllGameData(req, res) {
+  const sqlQuery = 'SELECT * FROM game_data';
+  client.query(sqlQuery)
+    .then(result => {
 
+      if (result.rowCount > 0) {
+        console.log(result.rows);
+        res.render('pages/games/all', { 'allGames': result.rows });
+      } else {
+        res.render('pages/games/add');
+      }
+    })
+    .catch (error => {
+      res.render('pages/error', { 'error': error });
+      console.log('error retrieving game data from database', error);
+    });
+
+  // res.send('all game data coming sooN!');
 }
 
 module.exports = getHomePage;

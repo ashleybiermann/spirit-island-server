@@ -7,6 +7,7 @@ CREATE TABLE IF NOT EXISTS game_data (
   victory BOOLEAN,
   victory_condition VARCHAR(255),
   loss_condition VARCHAR(255),
+  phase VARCHAR(255),
   country VARCHAR(255),
   country_level INTEGER,
   terrain_card_count INTEGER,

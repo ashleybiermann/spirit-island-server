@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/styles/base.css">
+
+  <title>Spirit Island Game Data</title>
+</head>
+
+<body>
+
+  <%- include('../partials/nav.ejs') %>
+
+  <h1>All Game Data</h1>
+
+  <table>
+    <h2> There are currently <%= allGames.length %> games recorded </h2>
+    <thead>
+      <th>game ID</th>
+      <th>Date</th>
+      <th>Owner</th>
+      <th>Victory</th>
+      <th>Victory Condition</th>
+      <th>Loss Condition</th>
+      <th>Phase</th>
+      <th>Country</th>
+      <th>Country Level</th>
+      <th>Terrain Card Count</th>
+      <th>Terror Level</th>
+      <th>Invader HP Remaining</th>
+      <th>Difficulty Feel</th>
+      <th>Blight Card</th>
+      <th>Scenario</th>
+      <th>Branch & Claw</th>
+      <th>Jagged Earth</th>
+      <th>Events</th>
+      <th>Notes</th>
+    </thead>
+
+    <tbody>
+      <% for (let i = 0; i < allGames.length; i++) { %>
+        <tr>
+          <td><%= allGames[i].game_id %></td>
+          <td><%= allGames[i].date %></td>
+          <td><%= allGames[i].owner %></td>
+          <td><%= allGames[i].victory %></td>
+          <td><%= allGames[i].victory_condition %></td>
+          <td><%= allGames[i].loss_condition %></td>
+          <td><%= allGames[i].phase %></td>
+          <td><%= allGames[i].country %></td>
+          <td><%= allGames[i].country_level %></td>
+          <td><%= allGames[i].terrain_card_count %></td>
+          <td><%= allGames[i].terror_level %></td>
+          <td><%= allGames[i].invader_hp_remaining %></td>
+          <td><%= allGames[i].difficulty_feel %></td>
+          <td><%= allGames[i].blight_card %></td>
+          <td><%= allGames[i].scenario %></td>
+          <td><%= allGames[i].branch_claw %></td>
+          <td><%= allGames[i].jagged_earth %></td>
+          <td><%= allGames[i].events %></td>
+          <td><%= allGames[i].notes %></td>
+        </tr>
+      <% } %>
+
+    </tbody>
+
+  </table>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"> </script>
+  <script src="app.js"></script>
+</body>
+
+</html>

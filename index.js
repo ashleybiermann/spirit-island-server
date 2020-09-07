@@ -31,6 +31,7 @@ client.connect(err => {
 // routes
 app.get('/', getHomePage);
 app.get('/games/all', getAllGameData);
+app.post('/games', saveNewGame);
 
 // start the app
 app.listen(PORT, () => console.log(`app is up on port : ${PORT}`));
@@ -56,8 +57,20 @@ function getAllGameData(req, res) {
       res.render('pages/error', { 'error': error });
       console.log('error retrieving game data from database', error);
     });
+}
 
-  // res.send('all game data coming sooN!');
+function saveNewGame(req, res) {
+  const saveToDatabase = 'INSERT INTO game_data (date, owner, victory, victory_condition, loss_condition, country, country_level, terrain_card_count, invader_hp_remaining, difficulty_feel, blight_card, scenario, branch_claw, jagged_earth, events, notes, terror_level, phase) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18) RETURNING id';
+
+  const gameInfo = [req.body.date, req.body.owner, req.body.victory, req.body.victory_condition, req.body.loss_condition, req.body.country, req.body.country_level, req.body.terrain_card_count, req.body.invader_hp_remaining, req.body.difficulty_feel, req.body.blight_card, req.body.scenario, req.body.branch_claw, req.body.jagged_earth, req.body.events, req.body.notes, req.body.terror_level, req.body.phase];
+
+  client.query(saveToDatabase, gameInfo)
+    .then(result => {
+      res.redirect('/games/all');
+    })
+    .catch(error => {
+      res.render('pages/error', { 'error': error });
+    });
 }
 
 module.exports = getHomePage;

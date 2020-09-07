@@ -1,0 +1,11 @@
+
+* {
+  background: rgb(251, 230, 247);
+  outline: dotted 1px magenta;
+  color: rgb(18, 1, 41);
+}
+
+h1 {
+  font-size: 40px;
+  color: rgb(30, 2, 66);
+}

@@ -51,7 +51,7 @@ function getAllGameData(req, res) {
         console.log(result.rows);
         res.render('pages/games/all', { 'allGames': result.rows });
       } else {
-        res.render('pages/games/add');
+        res.render('pages/games/new');
       }
     })
     .catch (error => {

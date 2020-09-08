@@ -1,12 +1,19 @@
 'use strict';
 
 $('document').ready(() => {
-  $('#gameDataEntryForm').show();
+
+  $('#recordNewGame').click(function(e) {
+    e.preventDefault();
+    window.location.href = '/games/new';
+  });
 
   $('#viewAllGameData').click(function(e) {
     e.preventDefault();
     window.location.href = '/games/all';
   });
 
-  $('#searchGameData').show();
+  $('#searchGameData').click(function(e) {
+    e.preventDefault();
+    // window.location.href = '/games/all'; FIXME:
+  });
 });

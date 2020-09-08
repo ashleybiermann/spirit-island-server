@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <link rel="stylesheet" href="/styles/base.css">
+  
+  <title>Add New Game Score</title>
+</head>
+<body>
+
+  <%- include('../partials/nav.ejs') %>
+
+  <h1>Add New Game Score</h1>
+  
+  <form id="saveNewGame" action="/games/new" method="POST">
+      <fieldset>
+        
+        <label for="date">Date</label>
+        <input type="date" name="date" value="">
+  
+        <label for="owner">Owner</label>
+        <input type="text" name="owner" value="">
+  
+        <label for="victory">Win!</label>
+        <input type="radio" name="victory" value="true">
+  
+        <label for="victory">Lose :-( </label>
+        <input type="radio" name="victory" value="false">
+
+        <label for="victory_condition">Victory Condition</label>
+        <input type="text" name="victory_condition" value="">
+
+        <label for="loss_condition">Loss Condition</label>
+        <input type="text" name="loss_condition" value="">
+
+        <label for="phase">Final Phase</label>
+        <input type="text" name="phase" value="">
+
+        <label for="country">Country</label>
+        <input type="text" name="country" value="">
+
+        <label for="country_level">Country Level</label>
+        <input type="number" name="country_level" min="0" max="6">
+
+        <label for="terrain_card_count">Terrain Cards Face Up</label>
+        <input type="number" name="terrain_card_count" min="1" max="12">
+
+        <label for="terror_level">Terror Level</label>
+        <input type="number" name="terror_level" min="1" max="3">
+
+        <label for="invader_hp_remaining">Invader HP Remaining</label>
+        <input type="number" name="invader_hp_remaining" value="">
+
+        <label for="difficulty_feel">How Difficult Did It Feel?</label>
+        <input type="number" name="difficulty_feel" min="1" max="5">
+
+        <label for="blight_card">Blight Card</label>
+        <input type="text" name="blight_card" value="">
+
+        <label for="scenario">Scenario</label>
+        <input type="text" name="scenario" value="">
+
+        <label for="branch_claw">Did you play with Branch & Claw?</label>
+        <input type="radio" name="branch_claw" value="true">
+        <input type="radio" name="branch_claw" value="false">
+
+        <label for="jagged_earth">Did you play with Jagged Earth?</label>
+        <input type="radio" name="jagged_earth" value="true">
+        <input type="radio" name="jagged_earth" value="false">
+
+        <label for="events">Did you play with Events?</label>
+        <input type="radio" name="events" value="true">
+        <input type="radio" name="events" value="false">
+
+        <label for="notes">Notes</label>
+        <input type="text" name="notes">
+
+        <button type="submit">Save Game Info</button>
+      </fieldset>
+  
+    </form>
+  
+</body>
+</html>
+
+
+
+
+

@@ -33,6 +33,7 @@ app.get('/', getHomePage);
 app.get('/games/all', getAllGameData);
 app.get('/games/new', getSaveForm);
 app.post('/games/new', saveNewGame);
+app.get('/games/search', )
 
 // start the app
 app.listen(PORT, () => console.log(`app is up on port : ${PORT}`));

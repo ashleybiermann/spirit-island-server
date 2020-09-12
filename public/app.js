@@ -14,6 +14,6 @@ $('document').ready(() => {
 
   $('#searchGameData').click(function(e) {
     e.preventDefault();
-    // window.location.href = '/games/all'; FIXME:
+    window.location.href = '/games/search';
   });
 });

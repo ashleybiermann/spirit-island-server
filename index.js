@@ -33,6 +33,7 @@ app.get('/', getHomePage);
 app.get('/games/all', getAllGameData);
 app.get('/games/new', getSaveForm);
 app.post('/games/new', saveNewGame);
+app.get('/games/search', getSearchForm);
 
 // start the app
 app.listen(PORT, () => console.log(`app is up on port : ${PORT}`));
@@ -62,6 +63,10 @@ function getAllGameData(req, res) {
 
 function getSaveForm(req, res) {
   res.render('pages/games/new.ejs');
+}
+
+function getSearchForm(req, res) {
+  res.render('pages/games/search.ejs');
 }
 
 function saveNewGame(req, res) {

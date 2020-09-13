@@ -13,10 +13,12 @@ Server for Spirit Island game data tracking
     - `postgres://<yourDBusername>:<yourDBpassword>@localhost:5432/<database_name>`
 
 ## Instructions
-- Create database, and create a table `game_data`
-  - Connect `data/schema.sql` to your running database
+- Create database `spirit_island`
+- Within, create tables `game_data` and `players_of_game_data`
+  - Connect `data/game-schema.sql` and `data/players-of-game-schema.sql` to your running database
     
 - `npm install`
 - `npm start`
+- View on `http://localhost:<PORT>/`
 
 ## Data

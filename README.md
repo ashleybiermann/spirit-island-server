@@ -28,3 +28,6 @@ Server for Spirit Island game data tracking
 - Tables: game_data | players_of_game_data
 - link db to schema Heroku `heroku pg:push spirit_island DATABASE_URL --app spirit-island-scores`
 - connect files to local db `psql -d spirit_island -f data/game-schema.sql` & `psql -d spirit_island -f data/players-of-game-schema.sql`
+
+## Current feature tasks
+- learning OmniDB tool to better manager database

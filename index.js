@@ -74,8 +74,11 @@ function saveNewGame(req, res) {
 
   const gameInfo = [req.body.date, req.body.owner, req.body.victory, req.body.victory_condition, req.body.loss_condition, req.body.country, req.body.country_level, req.body.terrain_card_count, req.body.invader_hp_remaining, req.body.difficulty_feel, req.body.blight_card, req.body.scenario, req.body.branch_claw, req.body.jagged_earth, req.body.events, req.body.notes, req.body.terror_level, req.body.phase];
 
+  //TODO: declare statement to savePlayerInfo to DB | declare array of playerInfo to be saved | use result from first query to gain access to game_id | use that to perform another query and save player data
+
   client.query(saveToDatabase, gameInfo)
     .then(result => {
+      // query to save playerInfo goes here
       res.redirect('/games/all');
     })
     .catch(error => {

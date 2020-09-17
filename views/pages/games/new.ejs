@@ -77,9 +77,13 @@
         <input type="radio" name="events" value="false">No
         </label>
 
-
         <label for="notes">Notes</label>
         <input type="text" name="notes">
+
+        <label for="addPlayerInfo"></label>        
+        <input id="addPlayerInfo" type="button" name="addPlayerInfo" value="Add Player Info"/>
+
+        <%- include('../partials/playerInfo.ejs') %>        
 
         <button type="submit">Save Game Info</button>
       </fieldset>

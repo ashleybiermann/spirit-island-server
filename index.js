@@ -49,7 +49,7 @@ function getAllGameData(req, res) {
     .then(result => {
 
       if (result.rowCount > 0) {
-        console.log(result.rows);
+        console.log('result.rows from getAllGameData', result.rows);
         res.render('pages/games/all', { 'allGames': result.rows });
       } else {
         res.render('pages/games/new');
@@ -70,14 +70,20 @@ function getSearchForm(req, res) {
 }
 
 function saveNewGame(req, res) {
-  const saveToDatabase = 'INSERT INTO game_data (date, owner, victory, victory_condition, loss_condition, country, country_level, terrain_card_count, invader_hp_remaining, difficulty_feel, blight_card, scenario, branch_claw, jagged_earth, events, notes, terror_level, phase) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18)';
+  const saveGameToDB = 'INSERT INTO game_data (date, owner, victory, victory_condition, loss_condition, country, country_level, terrain_card_count, invader_hp_remaining, difficulty_feel, blight_card, scenario, branch_claw, jagged_earth, events, notes, terror_level, phase) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18)';
 
   const gameInfo = [req.body.date, req.body.owner, req.body.victory, req.body.victory_condition, req.body.loss_condition, req.body.country, req.body.country_level, req.body.terrain_card_count, req.body.invader_hp_remaining, req.body.difficulty_feel, req.body.blight_card, req.body.scenario, req.body.branch_claw, req.body.jagged_earth, req.body.events, req.body.notes, req.body.terror_level, req.body.phase];
 
+  const savePlayerInfoToDB = 'INSERT INTO players_of_game_data (player_name, spirit, board, presence_at_end) VALUES ($1, $2, $3, $4)';
+
+  const playerInfo = [req.body.player_name, req.body.spirit, req.body.board, req.body.presence_at_end];
+
   //TODO: declare statement to savePlayerInfo to DB | declare array of playerInfo to be saved | use result from first query to gain access to game_id | use that to perform another query and save player data
 
-  client.query(saveToDatabase, gameInfo)
+  client.query(saveGameToDB, gameInfo)
     .then(result => {
+      console.log('result from db', result);
+      // need to get the game_id from the db in order to store the playerInfo
       // query to save playerInfo goes here
       res.redirect('/games/all');
     })

@@ -22,3 +22,12 @@ Server for Spirit Island game data tracking
 - View on `http://localhost:<PORT>/`
 
 ## Data
+
+## Cheatsheet
+- Database name: spirit_island
+- Tables: game_data | players_of_game_data
+- link db to schema Heroku `heroku pg:push spirit_island DATABASE_URL --app spirit-island-scores`
+- connect files to local db `psql -d spirit_island -f data/game-schema.sql` & `psql -d spirit_island -f data/players-of-game-schema.sql`
+
+## Current feature tasks
+- performing query on tables to retrieve info from db and render it to the View All Games page

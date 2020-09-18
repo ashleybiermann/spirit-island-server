@@ -1,6 +1,7 @@
 'use strict';
 
 $('document').ready(() => {
+  $('#playerInfoForm').hide();
 
   $('#recordNewGame').click(function(e) {
     e.preventDefault();
@@ -15,5 +16,11 @@ $('document').ready(() => {
   $('#searchGameData').click(function(e) {
     e.preventDefault();
     window.location.href = '/games/search';
+  });
+
+  $('#addPlayerInfo').click(function(e) {
+    e.preventDefault();
+    $('#playerInfoForm').show();
+    // $('#addAnotherPlayer').show();
   });
 });

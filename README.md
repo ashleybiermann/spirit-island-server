@@ -30,4 +30,4 @@ Server for Spirit Island game data tracking
 - connect files to local db `psql -d spirit_island -f data/game-schema.sql` & `psql -d spirit_island -f data/players-of-game-schema.sql`
 
 ## Current feature tasks
-- learning OmniDB tool to better manager database
+- performing query on tables to retrieve info from db and render it to the View All Games page

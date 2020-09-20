@@ -18,7 +18,7 @@
   <table>
     <h2> There are currently <%= allGames.length %> games recorded </h2>
     <thead>
-      <th><input type="button" id="game_id" value="game ID"/></th>
+      <!-- <th><input type="button" id="game_id" value="game ID"/></th> -->
       <th><input type="button" id="date" value="Date"/></th>
       <th><input type="button" id="owner" value="Owner"/></th>
       <th><input type="button" id="victory" value="Victory"/></th>
@@ -35,6 +35,10 @@
       <th><input type="button" id="scenario" value="Scenario"/></th>
       <th><input type="button" id="branch_claw" value="Branch & Claw"/></th>
       <th><input type="button" id="jagged_earth" value="Jagged Earth"/></th>
+      <th><input type="button" id="player_name" value="Player 1's Name"/></th>
+      <th><input type="button" id="spirit" value="P 1's Spirit"/></th>
+      <th><input type="button" id="board" value="P 1's Board"/></th>
+      <th><input type="button" id="presence_at_end" value="P 1's Remaining Presence"/></th>
       <th><input type="button" id="events" value="Events"/></th>
       <th><input type="button" id="notes" value="Notes"/></th>
     </thead>
@@ -42,7 +46,7 @@
     <tbody>
       <% for (let i = 0; i < allGames.length; i++) { %>
         <tr>
-          <td><%= allGames[i].game_id %></td>
+          <!-- <td><%= allGames[i].game_id %></td> -->
           <td><%= allGames[i].date %></td>
           <td><%= allGames[i].owner %></td>
           <td><%= allGames[i].victory %></td>
@@ -59,6 +63,10 @@
           <td><%= allGames[i].scenario %></td>
           <td><%= allGames[i].branch_claw %></td>
           <td><%= allGames[i].jagged_earth %></td>
+          <td><%= allGames[i].player_name %></td>
+          <td><%= allGames[i].spirit %></td>
+          <td><%= allGames[i].board %></td>
+          <td><%= allGames[i].presence_at_end %></td>
           <td><%= allGames[i].events %></td>
           <td><%= allGames[i].notes %></td>
         </tr>

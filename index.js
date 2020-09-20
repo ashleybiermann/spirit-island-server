@@ -44,11 +44,12 @@ function getHomePage(req, res) {
 }
 
 function getAllGameData(req, res) {
-  const sqlQuery = 'SELECT * FROM game_data'; //TODO: select also the info from the players_of_game_data table | https://stackoverflow.com/questions/12890071/select-from-multiple-tables-mysql | SELECT FROM WHERE GROUP BY
+  const sqlQuery = 'SELECT * FROM game_data LEFT JOIN players_of_game_data ON game_data.game_id=players_of_game_data.game_id'; 
+
   client.query(sqlQuery)
     .then(result => {
       if (result.rowCount > 0) {
-        console.log('result', result);
+        // console.log('***result from SQL query***', result);
         res.render('pages/games/all', { 'allGames': result.rows });
       } else {
         res.render('pages/games/new');

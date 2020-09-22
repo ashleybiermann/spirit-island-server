@@ -1,7 +1,6 @@
 'use strict';
 
 $('document').ready(() => {
-  $('#playerInfoForm').hide();
 
   $('#recordNewGame').click(function(e) {
     e.preventDefault();
@@ -18,9 +17,4 @@ $('document').ready(() => {
     window.location.href = '/games/search';
   });
 
-  $('#addPlayerInfo').click(function(e) {
-    e.preventDefault();
-    $('#playerInfoForm').show();
-    // $('#addAnotherPlayer').show();
-  });
 });

@@ -1,11 +1,27 @@
 
 * {
-  background: rgb(251, 230, 247);
-  outline: dotted 1px magenta;
-  color: rgb(18, 1, 41);
+  background: #189ab4;
+  outline: dotted 1px black;
+  color: black;
 }
 
 h1 {
   font-size: 40px;
-  color: rgb(30, 2, 66);
+  color: black;
 }
+
+/* 
+
+Baby Blue
+#d4f1f4
+
+Blue Green
+#75e6da
+
+Blue Grotto
+#189ab4
+
+Navy Blue 
+#05445e
+
+*/

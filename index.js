@@ -12,7 +12,7 @@ const PORT = process.env.PORT || 3000;
 const DATABASE_URL = process.env.DATABASE_URL;
 
 // configs and middleware
-app.use(express.urlencoded({ extended: true })); //middleware to create req.body for PORT forms
+app.use(express.urlencoded({ extended: true })); //middleware to create 'req.body' when submitting forms, makes it a nice format rather than a long string
 app.use(express.static('./public')); // which frontend files to serve, for the case of forms
 app.set('view engine', 'ejs'); // render === build a page in express
 app.use(methodOverride('_overrideMethod'));
@@ -70,13 +70,18 @@ function getSearchForm(req, res) {
 }
 
 function saveNewGame(req, res) {
+
+  console.log('request from form', req.body);
+
+  // TODO: parse out the request from the from data for each player, loop over the arrays to add individual players to the table
+
   const saveGameToDB = 'INSERT INTO game_data (date, owner, victory, victory_condition, loss_condition, country, country_level, terrain_card_count, invader_hp_remaining, difficulty_feel, blight_card, scenario, branch_claw, jagged_earth, events, notes, terror_level, phase) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18) RETURNING game_id';
 
   const gameInfo = [req.body.date, req.body.owner, req.body.victory, req.body.victory_condition, req.body.loss_condition, req.body.country, req.body.country_level, req.body.terrain_card_count, req.body.invader_hp_remaining, req.body.difficulty_feel, req.body.blight_card, req.body.scenario, req.body.branch_claw, req.body.jagged_earth, req.body.events, req.body.notes, req.body.terror_level, req.body.phase];
 
-  const savePlayerInfoToDB = 'INSERT INTO players_of_game_data (player_name, spirit, board, presence_at_end) VALUES ($1, $2, $3, $4)';
+  // const savePlayerInfoToDB = 'INSERT INTO players_of_game_data (player_name, spirit, board, presence_at_end) VALUES ($1, $2, $3, $4)';
 
-  const playerInfo = [req.body.player_name, req.body.spirit, req.body.board, req.body.presence_at_end];
+  // const playerInfo = [req.body.player_name, req.body.spirit, req.body.board, req.body.presence_at_end];
 
   // use result from first query to gain access to game_id | use that to perform another query and save player data
 

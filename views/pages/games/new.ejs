@@ -111,10 +111,26 @@
           <label for="numberOfPlayers">Number of Players</label>
           <input id ="numberOfPlayers" type="number" name="numberOfPlayers" onchange="updateNumberOfPlayers()" value="1" min="1" max="12">
         
-          <!-- <% for (let i = 1; i < numberOfPlayers.length; i++) { %>
-            <%- include('../partials/playerInfo.ejs') %>
-          
-          <% } %> -->
+          <% let maxPlayers = 4 %>
+          <% for (let i = 1; i <= maxPlayers; i++) { %>
+            <% let playerNumber = i %>
+                <div id="playerInfo">
+
+                <label for="player_name">Player <%- playerNumber %>'s Name</label>
+                <input type="text" name="player_name" value="" />
+              
+                <label for="spirit">Player <%- playerNumber %>'s Spirit</label>
+                <input type="text" name="spirit" value="" />
+              
+                <label for="board">Player <%- playerNumber %>'s Board Letter</label>
+                <input type="text" name="board" value="" />
+              
+                <label for="presence_at_end">Player <%- playerNumber %>'s Presence at End</label>
+                <input type="number" name="presence_at_end" value="" />
+              
+              </div>
+            <% } %>
+
         
         </section>
 

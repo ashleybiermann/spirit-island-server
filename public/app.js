@@ -1,6 +1,7 @@
 'use strict';
 
 $('document').ready(() => {
+  // $('#playerInfo').hide();
 
   $('#recordNewGame').click(function(e) {
     e.preventDefault();
@@ -21,5 +22,14 @@ $('document').ready(() => {
 function updateNumberOfPlayers() {
   let numberOfPlayers = document.getElementById('numberOfPlayers').value;
   console.log('number of players:', numberOfPlayers);
+
+  // let playerInfoDiv = document.getElementById('playerInfo');
+  // console.log('playerInfoDiv', playerInfoDiv);
+  
+  // return { 'numberOfPlayers': numberOfPlayers };
+  // for (let i = 0; i < numberOfPlayers; i++) {
+    // $('#playerInfo').show();
+  // }
+
 }
 

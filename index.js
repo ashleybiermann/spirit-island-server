@@ -62,7 +62,8 @@ function getAllGameData(req, res) {
 }
 
 function getSaveForm(req, res) {
-  res.render('pages/games/new.ejs');
+  let numberOfPlayers = 1;
+  res.render('pages/games/new.ejs', { 'numberOfPlayers': numberOfPlayers });
 }
 
 function getSearchForm(req, res) {
@@ -99,5 +100,6 @@ function saveNewGame(req, res) {
       res.render('pages/error', { 'error': error });
     });
 }
+
 
 module.exports = getHomePage;

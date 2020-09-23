@@ -16,5 +16,10 @@ $('document').ready(() => {
     e.preventDefault();
     window.location.href = '/games/search';
   });
-
 });
+
+function updateNumberOfPlayers() {
+  let numberOfPlayers = document.getElementById('numberOfPlayers').value;
+  console.log('number of players:', numberOfPlayers);
+}
+

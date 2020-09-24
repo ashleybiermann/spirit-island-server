@@ -103,14 +103,35 @@
           <input type="text" name="notes">
 
         </section>
-<!-- TODO: Put this in a loop, with a variable for the partial to show Player 1, Player, 2, Player 3, etc... -->
-        <%- include('../partials/playerInfo.ejs') %>
 
-        <%- include('../partials/playerInfo.ejs') %>
+        <section id="playerInfoForm">
 
-        <%- include('../partials/playerInfo.ejs') %>
+          <legend><h3>Player Info</h3></legend>
 
-        <%- include('../partials/playerInfo.ejs') %>
+          <label for="numberOfPlayers">Number of Players</label>
+          <input id ="numberOfPlayers" type="number" name="numberOfPlayers" value="<%= numberOfPlayers %>" min="1" max="12">
+        
+          <% for (let i = 1; i <= numberOfPlayers; i++) { %>
+            <% let playerNumber = i %>
+                <div id="playerInfo">
+
+                <label for="player_name">Player <%- playerNumber %>'s Name</label>
+                <input type="text" name="player_name" value="" />
+              
+                <label for="spirit">Player <%- playerNumber %>'s Spirit</label>
+                <input type="text" name="spirit" value="" />
+              
+                <label for="board">Player <%- playerNumber %>'s Board Letter</label>
+                <input type="text" name="board" value="" />
+              
+                <label for="presence_at_end">Player <%- playerNumber %>'s Presence at End</label>
+                <input type="number" name="presence_at_end" value="" />
+              
+              </div>
+            <% } %>
+
+        
+        </section>
 
         <button type="submit">Save Game Info</button>
       </fieldset>

@@ -17,19 +17,16 @@ $('document').ready(() => {
     e.preventDefault();
     window.location.href = '/games/search';
   });
+
+  $('#numberOfPlayers').click(function(e) {
+    e.preventDefault();
+    let numberOfPlayers = updateNumberOfPlayers();
+    window.location.href = '/games/new/' + numberOfPlayers;
+  });
 });
 
 function updateNumberOfPlayers() {
   let numberOfPlayers = document.getElementById('numberOfPlayers').value;
-  console.log('number of players:', numberOfPlayers);
-
-  // let playerInfoDiv = document.getElementById('playerInfo');
-  // console.log('playerInfoDiv', playerInfoDiv);
-  
-  // return { 'numberOfPlayers': numberOfPlayers };
-  // for (let i = 0; i < numberOfPlayers; i++) {
-    // $('#playerInfo').show();
-  // }
-
+  return numberOfPlayers;
 }
 

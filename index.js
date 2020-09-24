@@ -32,6 +32,7 @@ client.connect(err => {
 app.get('/', getHomePage);
 app.get('/games/all', getAllGameData);
 app.get('/games/new', getSaveForm);
+app.get('/games/new/:numberOfPlayers', getSaveForm);
 app.post('/games/new', saveNewGame);
 app.get('/games/search', getSearchForm);
 
@@ -62,7 +63,7 @@ function getAllGameData(req, res) {
 }
 
 function getSaveForm(req, res) {
-  let numberOfPlayers = 1;
+  let numberOfPlayers = req.params.numberOfPlayers;
   res.render('pages/games/new.ejs', { 'numberOfPlayers': numberOfPlayers });
 }
 

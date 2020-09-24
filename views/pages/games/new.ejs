@@ -109,10 +109,9 @@
           <legend><h3>Player Info</h3></legend>
 
           <label for="numberOfPlayers">Number of Players</label>
-          <input id ="numberOfPlayers" type="number" name="numberOfPlayers" onchange="updateNumberOfPlayers()" value="1" min="1" max="12">
+          <input id ="numberOfPlayers" type="number" name="numberOfPlayers" value="<%= numberOfPlayers %>" min="1" max="12">
         
-          <% let maxPlayers = 4 %>
-          <% for (let i = 1; i <= maxPlayers; i++) { %>
+          <% for (let i = 1; i <= numberOfPlayers; i++) { %>
             <% let playerNumber = i %>
                 <div id="playerInfo">
 

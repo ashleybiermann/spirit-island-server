@@ -32,7 +32,7 @@ client.connect(err => {
 app.get('/', getHomePage);
 app.get('/games/all', getAllGameData);
 app.get('/games/new', getSaveForm);
-app.get('/games/new/:numberOfPlayers', getSaveForm);
+// app.get('/games/new/:numberOfPlayers', getSaveForm);
 app.post('/games/new', saveNewGame);
 app.get('/games/search', getSearchForm);
 

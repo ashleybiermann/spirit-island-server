@@ -1,7 +1,8 @@
 'use strict';
 
 $('document').ready(() => {
-  // $('#playerInfo').hide();
+  
+  // $('#allGameInfo').hide();
 
   $('#recordNewGame').click(function(e) {
     e.preventDefault();
@@ -23,6 +24,8 @@ $('document').ready(() => {
     let numberOfPlayers = updateNumberOfPlayers();
     window.location.href = '/games/new/' + numberOfPlayers;
   });
+
+  // $('#setNumberOfPlayers').
 });
 
 function updateNumberOfPlayers() {

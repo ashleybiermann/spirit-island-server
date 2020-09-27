@@ -2,7 +2,7 @@
 
 $('document').ready(() => {
   
-  // $('#allGameInfo').hide();
+  $('#allGameInfo').hide();
 
   $('#recordNewGame').click(function(e) {
     e.preventDefault();
@@ -25,7 +25,6 @@ $('document').ready(() => {
     window.location.href = '/games/new/' + numberOfPlayers;
   });
 
-  // $('#setNumberOfPlayers').
 });
 
 function updateNumberOfPlayers() {

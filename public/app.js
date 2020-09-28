@@ -2,20 +2,19 @@
 
 $('document').ready(() => {
   
-  // $('#allGameInfo').hide();
-  
+  $('#allGames').DataTable();
 
-  $('#recordNewGame').click(function(e) {
+  $('#recordNewGame').click(function (e) {
     e.preventDefault();
     window.location.href = '/games/new';
   });
 
-  $('#viewAllGameData').click(function(e) {
+  $('#viewAllGameData').click(function (e) {
     e.preventDefault();
     window.location.href = '/games/all';
   });
 
-  $('#searchGameData').click(function(e) {
+  $('#searchGameData').click(function (e) {
     e.preventDefault();
     window.location.href = '/games/search';
   });

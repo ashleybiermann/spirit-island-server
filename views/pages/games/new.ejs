@@ -16,12 +16,13 @@
 
   <h1>Add New Score</h1>
 
-    <form id="setNumberOfPlayers">
-      <label for="numberOfPlayers">Number of Players</label>
-      <input type="number" name="numberOfPlayers" value="" min="1" max="12">
-      <button type="submit">Continue to Game Data Entry</button>
-    </form>
+  <form id="setNumberOfPlayers">
+    <label for="numberOfPlayers">Number of Players</label>
+    <input type="number" name="numberOfPlayers" value="" min="1" max="12">
+    <button type="submit">Continue to Game Data Entry</button>
+  </form>
 
+  <% if (numberOfPlayers) { %>
   <div id="allGameInfo">
     <section>
       <h2>Game and Player Info</h2>
@@ -123,24 +124,26 @@
               <h3>Player Info</h3>
             </legend>
 
-            <% for (let i = 1; i <= numberOfPlayers; i++) { %>
-            <% let playerNumber = i %>
-            <div id="playerInfo">
 
-              <label for="player_name">Player <%- playerNumber %>'s Name</label>
-              <input type="text" name="player_name" value="" />
 
-              <label for="spirit">Player <%- playerNumber %>'s Spirit</label>
-              <input type="text" name="spirit" value="" />
+              <% for (let i = 0; i < numberOfPlayers; i++) { %>
+              <% let playerNumber = i + 1 %>
+              <div id="playerInfo">
 
-              <label for="board">Player <%- playerNumber %>'s Board Letter</label>
-              <input type="text" name="board" value="" />
+                <label for="player_name">Player <%- playerNumber %>'s Name</label>
+                <input type="text" name="player_name" value="" />
 
-              <label for="presence_at_end">Player <%- playerNumber %>'s Presence at End</label>
-              <input type="number" name="presence_at_end" value="" />
+                <label for="spirit">Player <%- playerNumber %>'s Spirit</label>
+                <input type="text" name="spirit" value="" />
 
-            </div>
-            <% } %>
+                <label for="board">Player <%- playerNumber %>'s Board Letter</label>
+                <input type="text" name="board" value="" />
+
+                <label for="presence_at_end">Player <%- playerNumber %>'s Presence at End</label>
+                <input type="number" name="presence_at_end" value="" />
+
+              </div>
+              <% } %>
 
           </section>
 
@@ -149,6 +152,8 @@
 
       </form>
     </section>
+    <% } %>
+
   </div>
 
   <script src="https://code.jquery.com/jquery-3.5.1.min.js"> </script>

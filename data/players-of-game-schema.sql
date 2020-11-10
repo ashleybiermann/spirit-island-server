@@ -1,4 +1,4 @@
-DROP TABLE IF EXISTS players_of_game_data;
+DROP TABLE IF EXISTS players_of_game_data CASCADE;
 
 CREATE TABLE IF NOT EXISTS players_of_game_data (
   game_id INTEGER,

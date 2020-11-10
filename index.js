@@ -52,6 +52,7 @@ function getAllGameData(req, res) {
     .then(result => {
       if (result.rowCount > 0) {
         // console.log('***result from SQL query***', result);
+        // console.log('result.rows', result.rows);
         res.render('pages/games/all', { 'allGames': result.rows });
       } else {
         res.render('pages/games/new');
@@ -65,11 +66,11 @@ function getAllGameData(req, res) {
 
 function getSaveForm(req, res) {
   let numberOfPlayers = req.query.numberOfPlayers;
-  res.render('pages/games/new.ejs', { 'numberOfPlayers': numberOfPlayers });
+  res.render('pages/games/new', { 'numberOfPlayers': numberOfPlayers });
 }
 
 function getSearchForm(req, res) {
-  res.render('pages/games/search.ejs');
+  res.render('pages/games/search');
 }
 
 function saveNewGame(req, res) {
@@ -83,10 +84,16 @@ function saveNewGame(req, res) {
   client.query(saveGameToDB, gameInfo)
     .then(result => {
       const gameId = result.rows[0].game_id;
-      client.query('INSERT INTO players_of_game_data (player_name, spirit, board, presence_at_end, game_id) VALUES ($1, $2, $3, $4, $5)', [req.body.player_name, req.body.spirit, req.body.board, req.body.presence_at_end, gameId])
-        .then(result => {
-          res.redirect('/games/all');
-        });
+
+      for (let i = 0; i < req.body.player_name.length; i++) {
+
+        console.log('player_name ' + req.body.player_name[i]);
+
+        client.query('INSERT INTO players_of_game_data (player_name, spirit, board, presence_at_end, game_id) VALUES ($1, $2, $3, $4, $5)', [req.body.player_name[i], req.body.spirit[i], req.body.board[i], req.body.presence_at_end[i], gameId]);
+      }
+    })
+    .then(result => {
+      res.redirect('/games/all');
     })
     .catch(error => {
       res.render('pages/error', { 'error': error });
